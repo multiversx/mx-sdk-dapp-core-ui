@@ -1,7 +1,5 @@
 # notifications-feed
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -34,6 +32,8 @@ graph TD;
   notifications-feed --> fa-icon
   notifications-feed --> transaction-toast
   notifications-feed --> transaction-list-item
+  side-panel --> back-arrow-icon
+  side-panel --> close-icon
   transaction-toast --> transaction-toast-progress
   transaction-toast --> transaction-toast-content
   transaction-toast-content --> fa-icon

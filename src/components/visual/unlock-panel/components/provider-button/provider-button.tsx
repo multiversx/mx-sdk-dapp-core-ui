@@ -1,30 +1,45 @@
-import { Component, Fragment, h, Prop } from '@stencil/core';
+import { Component, Element, Fragment, h, Prop } from '@stencil/core';
 import { ProviderTypeEnum } from 'types/provider.types';
+import { StyledHost } from 'utils/StyledHost';
+
+enum ProviderButtonLabelsEnum {
+  extension = 'MultiversX Wallet Extension',
+  metamask = 'MetaMask Snap',
+  passkey = 'Passkey',
+  xportal = 'xPortal Wallet',
+  ledger = 'Ledger',
+  wallet = 'MultiversX Web Wallet',
+  xalias = 'Google (xAlias)',
+}
 
 const providerButtonInfo = {
   [ProviderTypeEnum.extension]: {
-    icon: <Fragment></Fragment>,
-    label: 'MultiversX Wallet Extension',
+    icon: <extension-provider-icon />,
+    label: ProviderButtonLabelsEnum.extension,
   },
   [ProviderTypeEnum.metamask]: {
-    icon: <Fragment></Fragment>,
-    label: 'Metamask Snap',
+    icon: <metamask-provider-icon />,
+    label: ProviderButtonLabelsEnum.metamask,
   },
   [ProviderTypeEnum.passkey]: {
-    icon: <Fragment></Fragment>,
-    label: 'Passkey',
+    icon: <passkey-provider-icon />,
+    label: ProviderButtonLabelsEnum.passkey,
   },
   [ProviderTypeEnum.walletConnect]: {
-    icon: <Fragment></Fragment>,
-    label: 'xPortal Wallet',
+    icon: <multiversx-logo-icon />,
+    label: ProviderButtonLabelsEnum.xportal,
   },
   [ProviderTypeEnum.ledger]: {
-    icon: <Fragment></Fragment>,
-    label: 'Ledger',
+    icon: <ledger-provider-icon />,
+    label: ProviderButtonLabelsEnum.ledger,
   },
   [ProviderTypeEnum.crossWindow]: {
-    icon: <Fragment></Fragment>,
-    label: 'MultiversX Web Wallet',
+    icon: <wallet-provider-icon />,
+    label: ProviderButtonLabelsEnum.wallet,
+  },
+  [ProviderTypeEnum.xalias]: {
+    icon: <xalias-provider-icon />,
+    label: ProviderButtonLabelsEnum.xalias,
   },
 };
 
@@ -35,13 +50,26 @@ const providerButtonInfo = {
 })
 export class ProviderButton {
   @Prop() type: ProviderTypeEnum;
+  @Element() host!: HTMLElement;
+
+  componentDidLoad() {
+    const btn = this.host.shadowRoot?.querySelector('unlock-button');
+    if (btn) {
+      btn.setAttribute('exportparts', 'unlock-button');
+    }
+  }
 
   render() {
     const walletInfo = this.type ? providerButtonInfo[this.type] : null;
+
     if (!walletInfo) {
-      return <Fragment></Fragment>;
+      return <Fragment />;
     }
 
-    return <unlock-button icon={walletInfo.icon} label={walletInfo.label}></unlock-button>;
+    return (
+      <StyledHost>
+        <unlock-button buttonIcon={walletInfo.icon} buttonLabel={walletInfo.label} buttonType={this.type} />
+      </StyledHost>
+    );
   }
 }

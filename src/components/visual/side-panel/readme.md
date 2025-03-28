@@ -1,23 +1,22 @@
 # side-panel
 
-
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property         | Attribute          | Description | Type                                                | Default                   |
-| ---------------- | ------------------ | ----------- | --------------------------------------------------- | ------------------------- |
-| `isOpen`         | `is-open`          |             | `boolean`                                           | `false`                   |
-| `panelClassName` | `panel-class-name` |             | `string`                                            | `undefined`               |
-| `side`           | `side`             |             | `SidePanelSideEnum.LEFT \| SidePanelSideEnum.RIGHT` | `SidePanelSideEnum.RIGHT` |
+| Property         | Attribute          | Description | Type      | Default     |
+| ---------------- | ------------------ | ----------- | --------- | ----------- |
+| `isOpen`         | `is-open`          |             | `boolean` | `false`     |
+| `panelClassName` | `panel-class-name` |             | `string`  | `undefined` |
+| `panelTitle`     | `panel-title`      |             | `string`  | `undefined` |
 
 
 ## Events
 
 | Event   | Description | Type               |
 | ------- | ----------- | ------------------ |
+| `back`  |             | `CustomEvent<any>` |
 | `close` |             | `CustomEvent<any>` |
 
 
@@ -32,9 +31,16 @@
  - [unlock-panel](../unlock-panel)
  - [wallet-connect-panel](../../functional/wallet-connect-components)
 
+### Depends on
+
+- [back-arrow-icon](../../../assets/icons/back-arrow-icon)
+- [close-icon](../../../assets/icons/close-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  side-panel --> back-arrow-icon
+  side-panel --> close-icon
   ledger-connect-panel --> side-panel
   notifications-feed --> side-panel
   pending-transactions-panel --> side-panel

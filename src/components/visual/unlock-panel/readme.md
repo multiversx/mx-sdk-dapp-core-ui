@@ -26,17 +26,25 @@
 ### Depends on
 
 - [side-panel](../side-panel)
-- [unlock-header](./components/header)
 - [provider-button](./components/provider-button)
 
 ### Graph
 ```mermaid
 graph TD;
   unlock-panel --> side-panel
-  unlock-panel --> unlock-header
   unlock-panel --> provider-button
-  unlock-header --> fa-icon
+  side-panel --> back-arrow-icon
+  side-panel --> close-icon
   provider-button --> unlock-button
+  provider-button --> extension-provider-icon
+  provider-button --> metamask-provider-icon
+  provider-button --> passkey-provider-icon
+  provider-button --> multiversx-logo-icon
+  provider-button --> ledger-provider-icon
+  provider-button --> wallet-provider-icon
+  provider-button --> xalias-provider-icon
+  unlock-button --> multiversx-logo-icon
+  unlock-button --> arrow-up-right-icon
   style unlock-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
