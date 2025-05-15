@@ -16,6 +16,7 @@ import { ISignTransactionsPanelData } from "./components/functional/sign-transac
 import { CustomToastType as CustomToastType1, IToastDataState, ITransactionProgressState, ITransactionToast } from "./components/functional/toasts-list/components/transaction-toast/transaction-toast.type";
 import { ITransactionAccount, ITransactionIconInfo, ITransactionsTableRow } from "./components/controlled/transactions-table/transactions-table.type";
 import { ITransactionListItem } from "./components/visual/transaction-list-item/transaction-list-item.types";
+import { IconSizeEnumType } from "./components/common/transaction-asset-icon/transaction-asset-icon.types";
 import { ITransactionListItem as ITransactionListItem1 } from "./components/visual/transaction-list-item/transaction-list-item.types";
 import { ITransactionValue } from "./components/controlled/transactions-table/transactions-table.type";
 import { IProviderBase, ProviderTypeEnum } from "./types/provider.types";
@@ -31,6 +32,7 @@ export { ISignTransactionsPanelData } from "./components/functional/sign-transac
 export { CustomToastType as CustomToastType1, IToastDataState, ITransactionProgressState, ITransactionToast } from "./components/functional/toasts-list/components/transaction-toast/transaction-toast.type";
 export { ITransactionAccount, ITransactionIconInfo, ITransactionsTableRow } from "./components/controlled/transactions-table/transactions-table.type";
 export { ITransactionListItem } from "./components/visual/transaction-list-item/transaction-list-item.types";
+export { IconSizeEnumType } from "./components/common/transaction-asset-icon/transaction-asset-icon.types";
 export { ITransactionListItem as ITransactionListItem1 } from "./components/visual/transaction-list-item/transaction-list-item.types";
 export { ITransactionValue } from "./components/controlled/transactions-table/transactions-table.type";
 export { IProviderBase, ProviderTypeEnum } from "./types/provider.types";
@@ -54,6 +56,8 @@ export namespace Components {
         "header"?: string;
         "ticker": string;
         "usdValue"?: string;
+    }
+    interface MvxCircleExclamationIcon {
     }
     interface MvxCloseIcon {
     }
@@ -92,6 +96,7 @@ export namespace Components {
     interface MvxFormatAmount {
         "class"?: string;
         "dataTestId"?: string;
+        "decimalClass"?: string;
         "isValid": boolean;
         "label"?: string;
         "labelClass"?: string;
@@ -217,6 +222,10 @@ export namespace Components {
         "class"?: string;
         "tooltip"?: string;
     }
+    interface MvxTransactionAssetIcon {
+        "iconSize": IconSizeEnumType;
+        "transaction": ITransactionListItem;
+    }
     interface MvxTransactionDirectionBadge {
         "class"?: string;
         "direction": string;
@@ -232,7 +241,7 @@ export namespace Components {
         "iconInfo": ITransactionIconInfo;
     }
     interface MvxTransactionListItem {
-        "transaction": ITransactionListItem;
+        "transaction": ITransactionListItem1;
     }
     interface MvxTransactionMethod {
         "actionDescription": string;
@@ -421,6 +430,12 @@ declare global {
     var HTMLMvxBalanceComponentElement: {
         prototype: HTMLMvxBalanceComponentElement;
         new (): HTMLMvxBalanceComponentElement;
+    };
+    interface HTMLMvxCircleExclamationIconElement extends Components.MvxCircleExclamationIcon, HTMLStencilElement {
+    }
+    var HTMLMvxCircleExclamationIconElement: {
+        prototype: HTMLMvxCircleExclamationIconElement;
+        new (): HTMLMvxCircleExclamationIconElement;
     };
     interface HTMLMvxCloseIconElement extends Components.MvxCloseIcon, HTMLStencilElement {
     }
@@ -775,6 +790,12 @@ declare global {
         prototype: HTMLMvxTransactionAgeElement;
         new (): HTMLMvxTransactionAgeElement;
     };
+    interface HTMLMvxTransactionAssetIconElement extends Components.MvxTransactionAssetIcon, HTMLStencilElement {
+    }
+    var HTMLMvxTransactionAssetIconElement: {
+        prototype: HTMLMvxTransactionAssetIconElement;
+        new (): HTMLMvxTransactionAssetIconElement;
+    };
     interface HTMLMvxTransactionDirectionBadgeElement extends Components.MvxTransactionDirectionBadge, HTMLStencilElement {
     }
     var HTMLMvxTransactionDirectionBadgeElement: {
@@ -972,6 +993,7 @@ declare global {
         "mvx-arrow-up-right-icon": HTMLMvxArrowUpRightIconElement;
         "mvx-back-arrow-icon": HTMLMvxBackArrowIconElement;
         "mvx-balance-component": HTMLMvxBalanceComponentElement;
+        "mvx-circle-exclamation-icon": HTMLMvxCircleExclamationIconElement;
         "mvx-close-icon": HTMLMvxCloseIconElement;
         "mvx-copy-button": HTMLMvxCopyButtonElement;
         "mvx-custom-toast": HTMLMvxCustomToastElement;
@@ -1012,6 +1034,7 @@ declare global {
         "mvx-transaction-account": HTMLMvxTransactionAccountElement;
         "mvx-transaction-account-name": HTMLMvxTransactionAccountNameElement;
         "mvx-transaction-age": HTMLMvxTransactionAgeElement;
+        "mvx-transaction-asset-icon": HTMLMvxTransactionAssetIconElement;
         "mvx-transaction-direction-badge": HTMLMvxTransactionDirectionBadgeElement;
         "mvx-transaction-fee-component": HTMLMvxTransactionFeeComponentElement;
         "mvx-transaction-hash": HTMLMvxTransactionHashElement;
@@ -1060,6 +1083,8 @@ declare namespace LocalJSX {
         "ticker"?: string;
         "usdValue"?: string;
     }
+    interface MvxCircleExclamationIcon {
+    }
     interface MvxCloseIcon {
     }
     interface MvxCopyButton {
@@ -1098,6 +1123,7 @@ declare namespace LocalJSX {
     interface MvxFormatAmount {
         "class"?: string;
         "dataTestId"?: string;
+        "decimalClass"?: string;
         "isValid"?: boolean;
         "label"?: string;
         "labelClass"?: string;
@@ -1230,6 +1256,10 @@ declare namespace LocalJSX {
         "class"?: string;
         "tooltip"?: string;
     }
+    interface MvxTransactionAssetIcon {
+        "iconSize"?: IconSizeEnumType;
+        "transaction"?: ITransactionListItem;
+    }
     interface MvxTransactionDirectionBadge {
         "class"?: string;
         "direction"?: string;
@@ -1245,7 +1275,7 @@ declare namespace LocalJSX {
         "iconInfo"?: ITransactionIconInfo;
     }
     interface MvxTransactionListItem {
-        "transaction"?: ITransactionListItem;
+        "transaction"?: ITransactionListItem1;
     }
     interface MvxTransactionMethod {
         "actionDescription"?: string;
@@ -1348,6 +1378,7 @@ declare namespace LocalJSX {
         "mvx-arrow-up-right-icon": MvxArrowUpRightIcon;
         "mvx-back-arrow-icon": MvxBackArrowIcon;
         "mvx-balance-component": MvxBalanceComponent;
+        "mvx-circle-exclamation-icon": MvxCircleExclamationIcon;
         "mvx-close-icon": MvxCloseIcon;
         "mvx-copy-button": MvxCopyButton;
         "mvx-custom-toast": MvxCustomToast;
@@ -1388,6 +1419,7 @@ declare namespace LocalJSX {
         "mvx-transaction-account": MvxTransactionAccount;
         "mvx-transaction-account-name": MvxTransactionAccountName;
         "mvx-transaction-age": MvxTransactionAge;
+        "mvx-transaction-asset-icon": MvxTransactionAssetIcon;
         "mvx-transaction-direction-badge": MvxTransactionDirectionBadge;
         "mvx-transaction-fee-component": MvxTransactionFeeComponent;
         "mvx-transaction-hash": MvxTransactionHash;
@@ -1427,6 +1459,7 @@ declare module "@stencil/core" {
             "mvx-arrow-up-right-icon": LocalJSX.MvxArrowUpRightIcon & JSXBase.HTMLAttributes<HTMLMvxArrowUpRightIconElement>;
             "mvx-back-arrow-icon": LocalJSX.MvxBackArrowIcon & JSXBase.HTMLAttributes<HTMLMvxBackArrowIconElement>;
             "mvx-balance-component": LocalJSX.MvxBalanceComponent & JSXBase.HTMLAttributes<HTMLMvxBalanceComponentElement>;
+            "mvx-circle-exclamation-icon": LocalJSX.MvxCircleExclamationIcon & JSXBase.HTMLAttributes<HTMLMvxCircleExclamationIconElement>;
             "mvx-close-icon": LocalJSX.MvxCloseIcon & JSXBase.HTMLAttributes<HTMLMvxCloseIconElement>;
             "mvx-copy-button": LocalJSX.MvxCopyButton & JSXBase.HTMLAttributes<HTMLMvxCopyButtonElement>;
             "mvx-custom-toast": LocalJSX.MvxCustomToast & JSXBase.HTMLAttributes<HTMLMvxCustomToastElement>;
@@ -1467,6 +1500,7 @@ declare module "@stencil/core" {
             "mvx-transaction-account": LocalJSX.MvxTransactionAccount & JSXBase.HTMLAttributes<HTMLMvxTransactionAccountElement>;
             "mvx-transaction-account-name": LocalJSX.MvxTransactionAccountName & JSXBase.HTMLAttributes<HTMLMvxTransactionAccountNameElement>;
             "mvx-transaction-age": LocalJSX.MvxTransactionAge & JSXBase.HTMLAttributes<HTMLMvxTransactionAgeElement>;
+            "mvx-transaction-asset-icon": LocalJSX.MvxTransactionAssetIcon & JSXBase.HTMLAttributes<HTMLMvxTransactionAssetIconElement>;
             "mvx-transaction-direction-badge": LocalJSX.MvxTransactionDirectionBadge & JSXBase.HTMLAttributes<HTMLMvxTransactionDirectionBadgeElement>;
             "mvx-transaction-fee-component": LocalJSX.MvxTransactionFeeComponent & JSXBase.HTMLAttributes<HTMLMvxTransactionFeeComponentElement>;
             "mvx-transaction-hash": LocalJSX.MvxTransactionHash & JSXBase.HTMLAttributes<HTMLMvxTransactionHashElement>;
