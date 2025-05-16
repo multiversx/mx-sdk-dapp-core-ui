@@ -19,11 +19,11 @@ const getProviderIntroText = (providerType?: IProviderBase['type']) => {
 };
 
 @Component({
-  tag: 'mvx-unlock-provider-intro',
-  styleUrl: 'unlock-provider-intro.scss',
+  tag: 'mvx-provider-idle-screen',
+  styleUrl: 'provider-idle-screen.scss',
   shadow: true,
 })
-export class UnlockProviderIntro {
+export class ProviderIdleScreen {
   @Prop() provider: IProviderBase | null = null;
   @Event() access: EventEmitter;
 
